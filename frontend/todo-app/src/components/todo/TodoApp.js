@@ -5,7 +5,6 @@ import {
   Route,
   useNavigate,
   useParams,
-  Link,
 } from "react-router-dom";
 import AuthenticatedRoute from "./AuthenticatedRoute.js";
 import LoginComponent from "./LoginComponent.js";
