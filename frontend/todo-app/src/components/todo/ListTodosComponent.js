@@ -48,6 +48,10 @@ class ListTodosComponent extends Component {
                     <td>{todo.description}</td>
                     <td>{todo.done.toString()}</td>
                     <td>{todo.targetDate.toString()}</td>
+                    <td>
+                      <button className="btn btn-success">Update</button>
+                      <button className="btn btn-danger">Delete</button>
+                    </td>
                   </tr>
                 );
               })}
