@@ -5,7 +5,7 @@ class LoginComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "in28minutes",
+      username: "username",
       password: "",
       hasLoginFailed: false,
       showSuccessMessage: false,
@@ -23,19 +23,34 @@ class LoginComponent extends Component {
   submitForm(e) {
     //in28minutes, dummy
     e.preventDefault();
-    if (
-      this.state.username === "in28minutes" &&
-      this.state.password === "dummy"
-    ) {
-      AuthenticationService.registerSuccessfulLogin(
-        this.state.username,
-        this.state.password
-      );
-      this.props.navigate(`/welcome/${this.state.username}`);
-      // this.setState({ hasLoginFailed: false, showSuccessMessage: true });
-    } else {
-      this.setState({ hasLoginFailed: true, showSuccessMessage: false });
-    }
+    // if (
+    //   this.state.username === "username" &&
+    //   this.state.password === "password"
+    // ) {
+    //   AuthenticationService.registerSuccessfulLogin(
+    //     this.state.username,
+    //     this.state.password
+    //   );
+    //   this.props.navigate(`/welcome/${this.state.username}`);
+    //   // this.setState({ hasLoginFailed: false, showSuccessMessage: true });
+    // } else {
+    //   this.setState({ hasLoginFailed: true, showSuccessMessage: false });
+    // }
+
+    AuthenticationService.executeBasicAuthenticationService(
+      this.state.username,
+      this.state.password
+    )
+      .then(() => {
+        AuthenticationService.registerSuccessfulLogin(
+          this.state.username,
+          this.state.password
+        );
+        this.props.navigate(`/welcome/${this.state.username}`);
+      })
+      .catch(() => {
+        this.setState({ hasLoginFailed: true, showSuccessMessage: false });
+      });
   }
 
   render() {

@@ -118,12 +118,12 @@ class ListTodosComponent extends Component {
                 );
               })}
             </tbody>
-            <div className="row">
-              <button className="btn btn-success" onClick={this.addTodoClicked}>
-                Add
-              </button>
-            </div>
           </table>
+          <div className="row">
+            <button className="btn btn-success" onClick={this.addTodoClicked}>
+              Add
+            </button>
+          </div>
         </div>
       </div>
     );
