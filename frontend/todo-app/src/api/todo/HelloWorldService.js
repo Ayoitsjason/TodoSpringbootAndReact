@@ -11,12 +11,12 @@ class HelloWorldService {
 
   executeHelloWorldPathVariableService(variable) {
     let username = "username";
-    let password = "dummy";
+    let password = "password";
 
     let basicAuthHeader = "Basic " + window.btoa(username + ":" + password);
     const config = {
       headers: {
-        authorization: basicAuthHeader,
+        Authorization: basicAuthHeader,
       },
     };
     return axios.get(
