@@ -21,6 +21,9 @@ class TodoApp extends Component {
     const WelcomeComponenetWithParams = withParams(WelcomeComponent);
     const HeaderComponentWithNAvigation = withNavigation(HeaderComponent);
     const ListTodosComponentWithNavigate = withNavigation(ListTodosComponent);
+    const TodoComponentWithParamsAndNavigation = withParams(
+      withNavigation(TodoComponent)
+    );
     return (
       <div className="TodoApp">
         <Router>
@@ -45,18 +48,18 @@ class TodoApp extends Component {
               }
             />
             <Route
-              path="/logout"
+              path="/todos/:id"
               element={
                 <AuthenticatedRoute>
-                  <LogoutComponent />
+                  <TodoComponentWithParamsAndNavigation />
                 </AuthenticatedRoute>
               }
             />
             <Route
-              path="/todos/:id"
+              path="/logout"
               element={
                 <AuthenticatedRoute>
-                  <TodoComponent />
+                  <LogoutComponent />
                 </AuthenticatedRoute>
               }
             />

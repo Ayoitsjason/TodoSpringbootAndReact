@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import TodoDataService from "../../api/todo/TodoDataService";
 import AuthenticationService from "./AuthenticationService";
 
@@ -31,6 +32,7 @@ class ListTodosComponent extends Component {
     this.deleteTodoClicked = this.deleteTodoClicked.bind(this);
     this.refreshTodos = this.refreshTodos.bind(this);
     this.updateTodoClicked = this.updateTodoClicked.bind(this);
+    this.addTodoClicked = this.addTodoClicked.bind(this);
   }
 
   componentDidMount() {
@@ -61,8 +63,11 @@ class ListTodosComponent extends Component {
       });
   }
 
+  addTodoClicked() {
+    this.props.navigate("/todos/-1");
+  }
+
   updateTodoClicked(id) {
-    console.log("update " + id);
     this.props.navigate(`/todos/${id}`);
   }
 
@@ -77,7 +82,7 @@ class ListTodosComponent extends Component {
           <table className="table">
             <thead>
               <tr>
-                <th>Id</th>
+                {/* <th>Id</th> */}
                 <th>Description</th>
                 <th>Is Done?</th>
                 <th>TargetDate</th>
@@ -89,10 +94,10 @@ class ListTodosComponent extends Component {
               {this.state.todo.map((todo) => {
                 return (
                   <tr key={todo.id}>
-                    <td>{todo.id}</td>
+                    {/* <td>{todo.id}</td> */}
                     <td>{todo.description}</td>
                     <td>{todo.done.toString()}</td>
-                    <td>{todo.targetDate.toString()}</td>
+                    <td>{moment(todo.targetDate).format("YYYY-MM-DD")}</td>
                     <td>
                       <button
                         className="btn btn-success"
@@ -113,6 +118,11 @@ class ListTodosComponent extends Component {
                 );
               })}
             </tbody>
+            <div className="row">
+              <button className="btn btn-success" onClick={this.addTodoClicked}>
+                Add
+              </button>
+            </div>
           </table>
         </div>
       </div>
