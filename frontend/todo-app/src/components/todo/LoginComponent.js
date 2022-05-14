@@ -5,7 +5,7 @@ class LoginComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "username",
+      username: "in28minutes",
       password: "",
       hasLoginFailed: false,
       showSuccessMessage: false,
@@ -37,14 +37,29 @@ class LoginComponent extends Component {
     //   this.setState({ hasLoginFailed: true, showSuccessMessage: false });
     // }
 
-    AuthenticationService.executeBasicAuthenticationService(
+    // AuthenticationService.executeBasicAuthenticationService(
+    //   this.state.username,
+    //   this.state.password
+    // )
+    //   .then(() => {
+    //     AuthenticationService.registerSuccessfulLogin(
+    //       this.state.username,
+    //       this.state.password
+    //     );
+    //     this.props.navigate(`/welcome/${this.state.username}`);
+    //   })
+    //   .catch(() => {
+    //     this.setState({ hasLoginFailed: true, showSuccessMessage: false });
+    //   });
+
+    AuthenticationService.executeJWTAuthenticationService(
       this.state.username,
       this.state.password
     )
-      .then(() => {
-        AuthenticationService.registerSuccessfulLogin(
+      .then((response) => {
+        AuthenticationService.registerSuccessfulLoginForJwt(
           this.state.username,
-          this.state.password
+          response.data.token
         );
         this.props.navigate(`/welcome/${this.state.username}`);
       })
