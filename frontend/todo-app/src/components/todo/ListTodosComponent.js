@@ -84,8 +84,8 @@ class ListTodosComponent extends Component {
               <tr>
                 {/* <th>Id</th> */}
                 <th>Description</th>
-                <th>Is Done?</th>
                 <th>TargetDate</th>
+                <th>Is Completed?</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>
@@ -96,8 +96,8 @@ class ListTodosComponent extends Component {
                   <tr key={todo.id}>
                     {/* <td>{todo.id}</td> */}
                     <td>{todo.description}</td>
-                    <td>{todo.done.toString()}</td>
                     <td>{moment(todo.targetDate).format("YYYY-MM-DD")}</td>
+                    <td>{todo.done.toString()}</td>
                     <td>
                       <button
                         className="btn btn-success"
@@ -118,12 +118,12 @@ class ListTodosComponent extends Component {
                 );
               })}
             </tbody>
-            <div className="row">
-              <button className="btn btn-success" onClick={this.addTodoClicked}>
-                Add
-              </button>
-            </div>
           </table>
+          <div className="row">
+            <button className="btn btn-success" onClick={this.addTodoClicked}>
+              Add
+            </button>
+          </div>
         </div>
       </div>
     );

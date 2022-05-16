@@ -1,0 +1,4 @@
+{
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.project.sourcePaths": ["jpa-in-10-steps"]
+}

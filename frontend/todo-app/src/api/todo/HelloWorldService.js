@@ -1,28 +1,26 @@
 import axios from "axios";
+import { API_URL } from "../../Constants.js";
 
 class HelloWorldService {
   executeHelloWorldBeanService() {
-    return axios.get(`http://localhost:8080/hello-world-bean`);
+    return axios.get(`${API_URL}/hello-world-bean`);
   }
 
   executeHelloWorldService() {
-    return axios.get(`http://localhost:8080/hello-world`);
+    return axios.get(`${API_URL}/hello-world`);
   }
 
   executeHelloWorldPathVariableService(variable) {
-    let username = "username";
-    let password = "password";
+    // let username = "username";
+    // let password = "password";
 
-    let basicAuthHeader = "Basic " + window.btoa(username + ":" + password);
-    const config = {
-      headers: {
-        Authorization: basicAuthHeader,
-      },
-    };
-    return axios.get(
-      `http://localhost:8080/hello-world/path-variable/${variable}`,
-      config
-    );
+    // let basicAuthHeader = "Basic " + window.btoa(username + ":" + password);
+    // const config = {
+    //   headers: {
+    //     Authorization: basicAuthHeader,
+    //   },
+    // };
+    return axios.get(`${API_URL}/hello-world/path-variable/${variable}`);
   }
 }
 
