@@ -17,7 +17,7 @@ class TodoComponent extends Component {
   }
 
   componentDidMount() {
-    if (this.state.id === -1) return;
+    if (this.state.id === "-1") return;
 
     const username = AuthenticationService.getLoggedInUserName();
     const { id } = this.state;
@@ -53,7 +53,7 @@ class TodoComponent extends Component {
       description: values.description,
       targetDate: values.targetDate,
     };
-    if (id === -1) {
+    if (id === "-1") {
       TodoDataService.createTodo(username, todo)
         .then(() => {
           this.props.navigate("/todos");

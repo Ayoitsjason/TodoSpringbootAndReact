@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch RestfulWebServicesApplication",
+      "request": "launch",
+      "mainClass": "com.in28minutes.rest.webservices.restfulwebservices.RestfulWebServicesApplication",
+      "projectName": "restful-web-services"
+    },
+    {
+      "type": "java",
+      "name": "Launch JpaIn10StepsApplication",
+      "request": "launch",
+      "mainClass": "com.in28minutes.learning.jpa.JpaIn10StepsApplication",
+      "projectName": "jpa-in-10-steps"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-JpaIn10StepsApplication<jpa-in-10-steps>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.in28minutes.learning.jpa.jpain10steps.JpaIn10StepsApplication",
+      "projectName": "jpa-in-10-steps",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
